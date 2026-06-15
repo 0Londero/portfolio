@@ -1,7 +1,7 @@
 <div align="center">
   <img src="images/pucpr.png" alt="PUCPR" height="72" />
 
-  <h1>Portfólio — Quem Sou Eu?</h1>
+  <h1>Portfólio · Quem Sou Eu?</h1>
   <p>Atividade acadêmica · Experiência Criativa · PUCPR 2025</p>
 
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5" />
@@ -14,9 +14,9 @@
 
 ## Sobre o projeto
 
-Single-page portfolio desenvolvido para a atividade **"Quem Sou Eu?"** da disciplina de Experiência Criativa da PUCPR. O design une a estética do jogo [Balatro](https://www.playbalatro.com/) com o minimalismo do portfólio de Bill Chien — cartas de baralho, fichas de poker e uma paleta escura com dourado, vermelho e roxo.
+Single-page portfolio desenvolvido para a atividade **"Quem Sou Eu?"** da disciplina de Experiência Criativa da PUCPR. O design une a estética do jogo [Balatro](https://www.playbalatro.com/) com o minimalismo do portfólio de Bill Chien: cartas de baralho, fichas de poker e uma paleta escura com dourado, vermelho e roxo.
 
-> **Experimento 100% IA:** todo o código, conteúdo e decisões de design foram gerados com [Claude Code](https://claude.ai/code) (Anthropic), sem escrever uma linha sequer manualmente. O objetivo foi testar as capacidades reais de um assistente de IA no ciclo completo de desenvolvimento front-end — do conceito ao produto final.
+> **Experimento 100% IA:** todo o código, conteúdo e decisões de design foram gerados com [Claude Code](https://claude.ai/code) (Anthropic), sem escrever uma linha sequer manualmente. O objetivo foi testar as capacidades reais de um assistente de IA no ciclo completo de desenvolvimento front-end, do conceito ao produto final.
 
 ---
 
@@ -80,9 +80,9 @@ portfolio/
 
 ## Projetos apresentados
 
-**Letheus** — plataformer cyberpunk 2D desenvolvido no Construct. Personagem mascarado, cenário de néon violeta, mecânicas de combate construídas do zero.
+**Letheus**: plataformer cyberpunk 2D desenvolvido no Construct. Personagem mascarado, cenário de néon violeta, mecânicas de combate construídas do zero.
 
-**Explorando Ubuntu** — aplicativo multimídia interativo sobre Linux, desenvolvido no Processing. Cobre História, Kernel, Comandos, Pacotes, Segurança e Redes.
+**Explorando Ubuntu**: aplicativo multimídia interativo sobre Linux, desenvolvido no Processing. Cobre História, Kernel, Comandos, Pacotes, Segurança e Redes.
 
 ---
 
