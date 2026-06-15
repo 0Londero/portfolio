@@ -1,0 +1,908 @@
+/* ================================================
+   BALATRO PORTFOLIO — style.css
+   Paleta: balatro-jokers-palette.hex
+   Fonte display: fonts/balatro.otf.woff2
+   Layout: Mobile-First, Flexbox + Grid
+   ================================================ */
+
+@font-face {
+  font-family: 'Balatro';
+  src: url('fonts/balatro.otf.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ────────────────────────────────────────────────
+   TOKENS DE DESIGN
+   ──────────────────────────────────────────────── */
+:root {
+  /* Backgrounds */
+  --clr-bg:        #090b12;
+  --clr-bg-sec:    #0d1020;
+  --clr-bg-alt:    #111827;
+  --clr-felt:      #0c1e17;
+
+  /* Card face */
+  --clr-card:      #f7f1e4;
+  --clr-card-warm: #fee9c6;
+  --clr-card-bd:   #b7a88a;
+
+  /* Paleta principal */
+  --clr-gold:      #fde700;
+  --clr-gold-lt:   #fde486;
+  --clr-gold-dk:   #fdcf51;
+
+  --clr-red:       #ec2d33;
+  --clr-red-lt:    #ff6368;
+
+  --clr-blue:      #009cfd;
+  --clr-blue-lt:   #3cb4ff;
+
+  --clr-purple:    #935adc;
+  --clr-purple-lt: #ae65ff;
+
+  --clr-green:     #56a786;
+  --clr-green-lt:  #74cca8;
+  --clr-navy:      #334461;
+
+  --clr-text:      #f4f8f9;
+  --clr-muted:     #a6a6a6;
+  --clr-dark:      #1a1a1a;
+
+  /* Cores Balatro: vermelho chamativo + vinho */
+  --clr-balatro-red:  #e8272a;
+  --clr-balatro-wine: #6b0810;
+
+  /* Fontes */
+  --f-display: 'Balatro', 'Courier New', monospace;
+  --f-body:    'Inter', 'Segoe UI', system-ui, sans-serif;
+
+  /* Espaçamentos */
+  --sp-xs:  0.25rem;
+  --sp-sm:  0.5rem;
+  --sp-md:  1rem;
+  --sp-lg:  2rem;
+  --sp-xl:  4rem;
+  --sp-2xl: 8rem;
+
+  /* Bordas */
+  --r-sm:   4px;
+  --r-md:   8px;
+  --r-lg:   16px;
+  --r-card: 12px;
+
+  /* Sombras */
+  --sh-card:   0 4px 24px rgba(0,0,0,.55), 0 1px 4px rgba(0,0,0,.3);
+  --sh-gold:   0 0 24px rgba(253,231,0,.35), 0 0 60px rgba(253,231,0,.1);
+  --sh-purple: 0 0 24px rgba(147,90,220,.4);
+  --sh-blue:   0 0 24px rgba(0,156,253,.4);
+  --sh-red:    0 0 24px rgba(232,39,42,.4);
+
+  /* Transições */
+  --t-fast: 150ms ease;
+  --t-base: 300ms ease;
+  --t-slow: 600ms cubic-bezier(.23,1,.32,1);
+  --t-flip: 950ms cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* ────────────────────────────────────────────────
+   RESET
+   ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--f-body);
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  line-height: 1.7;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(ellipse 60% 50% at 15% 0%,  rgba(147,90,220,.07) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 85% 100%, rgba(0,156,253,.06)  0%, transparent 70%);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a   { color: inherit; text-decoration: none; }
+ul  { list-style: none; }
+
+h1, h2, h3 {
+  font-family: var(--f-display);
+  line-height: 1.15;
+  letter-spacing: .03em;
+}
+
+/* ────────────────────────────────────────────────
+   KEYFRAMES
+   ──────────────────────────────────────────────── */
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(-14px); }
+}
+
+@keyframes glitch-a {
+  0%,100% { clip-path: inset(0 0 96% 0); transform: translate(-2px); }
+  20%     { clip-path: inset(30% 0 52% 0); transform: translate(2px); }
+  60%     { clip-path: inset(60% 0 22% 0); transform: translate(-1px); }
+}
+@keyframes glitch-b {
+  0%,100% { clip-path: inset(50% 0 28% 0); transform: translate(2px); }
+  30%     { clip-path: inset(20% 0 64% 0); transform: translate(-2px); }
+  70%     { clip-path: inset(70% 0 10% 0); transform: translate(1px); }
+}
+
+@keyframes scroll-line {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  49%  { transform: scaleY(1); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+@keyframes pulse-glow {
+  0%,100% { box-shadow: var(--sh-card), 0 0 30px rgba(253,231,0,.2); }
+  50%     { box-shadow: var(--sh-card), 0 0 60px rgba(253,231,0,.45); }
+}
+
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes holo {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Rotação da ficha de poker */
+@keyframes chip-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Véu escuro que suaviza a transição entre as faces do flip-card */
+@keyframes flip-veil {
+  0%   { opacity: 0; }
+  38%  { opacity: 0.88; }
+  62%  { opacity: 0.88; }
+  100% { opacity: 0; }
+}
+
+/* Faixa de naipes deslizante */
+@keyframes slide-suits {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ────────────────────────────────────────────────
+   REVEAL — IntersectionObserver
+   ──────────────────────────────────────────────── */
+.reveal-card {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity var(--t-slow), transform var(--t-slow);
+}
+.reveal-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ────────────────────────────────────────────────
+   FICHAS DE POKER — imagem real na nav
+   ──────────────────────────────────────────────── */
+.nav__chip {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* Gira continuamente enquanto o link está em hover ou ativo */
+.nav__link:hover .nav__chip,
+.nav__link.is-active .nav__chip {
+  animation: chip-spin .8s linear infinite;
+}
+
+/* Chip maior para o logo */
+.nav__logo .nav__chip {
+  width: 22px;
+  height: 22px;
+}
+
+/* ────────────────────────────────────────────────
+   FAIXA BALATRO — gradiente vermelho chamativo/vinho
+   ──────────────────────────────────────────────── */
+.balatro-stripe {
+  height: 46px;
+  background: linear-gradient(
+    90deg,
+    var(--clr-balatro-wine) 0%,
+    #c01820 30%,
+    var(--clr-balatro-red)  50%,
+    #c01820 70%,
+    var(--clr-balatro-wine) 100%
+  );
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Desvanecer nas bordas para parecer contínuo */
+.balatro-stripe::before,
+.balatro-stripe::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.balatro-stripe::before { left: 0;  background: linear-gradient(to right, var(--clr-balatro-wine), transparent); }
+.balatro-stripe::after  { right: 0; background: linear-gradient(to left,  var(--clr-balatro-wine), transparent); }
+
+.stripe__track {
+  display: flex;
+  white-space: nowrap;
+  animation: slide-suits 14s linear infinite;
+}
+
+.stripe__text {
+  font-family: var(--f-display);
+  font-size: 1rem;
+  color: rgba(255,255,255,.18);
+  letter-spacing: .7em;
+  padding-right: 2em;
+  user-select: none;
+}
+
+/* ────────────────────────────────────────────────
+   NAVEGAÇÃO — estilo botões Balatro
+   ──────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: var(--sp-md);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: min(92vw, 760px);
+  transition: opacity var(--t-base), transform var(--t-base);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 7px 8px;
+  background: rgba(9,11,18,.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 2px solid rgba(253,231,0,.2);
+  border-radius: 12px;
+  box-shadow:
+    0 8px 32px rgba(0,0,0,.5),
+    inset 0 1px 0 rgba(253,231,0,.05),
+    0 0 0 1px rgba(0,0,0,.3);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav__inner::-webkit-scrollbar { display: none; }
+
+/* Cada link parece um botão com borda própria (estilo Balatro) */
+.nav__link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--f-display);
+  font-size: .7rem;
+  color: rgba(244,248,249,.7);
+  padding: 5px 11px;
+  border-radius: 6px;
+  border: 1px solid rgba(253,231,0,.08);
+  background: rgba(253,231,0,.02);
+  white-space: nowrap;
+  letter-spacing: .1em;
+  transition: color var(--t-fast), background var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+  cursor: pointer;
+}
+.nav__link:hover,
+.nav__link.is-active {
+  color: var(--clr-gold);
+  background: rgba(253,231,0,.1);
+  border-color: rgba(253,231,0,.35);
+  box-shadow: 0 0 12px rgba(253,231,0,.15), inset 0 1px 0 rgba(253,231,0,.08);
+}
+
+/* Logo: só a ficha, sem texto */
+.nav__logo {
+  padding: 4px 6px;
+  border-color: rgba(253,231,0,.2);
+  background: rgba(253,231,0,.05);
+  margin-right: 4px;
+}
+.nav__logo:hover {
+  border-color: rgba(253,231,0,.5);
+  box-shadow: 0 0 16px rgba(253,231,0,.3);
+}
+
+/* ────────────────────────────────────────────────
+   HERO
+   ──────────────────────────────────────────────── */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem var(--sp-md) var(--sp-xl);
+  position: relative;
+  overflow: hidden;
+  /* Toque de vinho/vermelho Balatro no fundo do hero */
+  background: radial-gradient(ellipse 100% 60% at 50% 110%, rgba(107,8,16,.55) 0%, transparent 70%);
+}
+
+.hero__bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-color: var(--clr-felt);
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.04) 1px, transparent 0);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 75% 75% at 50% 50%, black 30%, transparent 100%);
+  pointer-events: none;
+}
+
+.hero__card {
+  position: relative;
+  width: min(400px, 88vw);
+  background: var(--clr-card);
+  border-radius: var(--r-card);
+  padding: var(--sp-xl) var(--sp-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-lg);
+  border: 2px solid rgba(253,231,0,.25);
+  animation: float 6s ease-in-out infinite, pulse-glow 4s ease-in-out infinite;
+}
+
+
+.card-corner {
+  position: absolute;
+  font-family: var(--f-display);
+  font-size: .8rem;
+  line-height: 1.3;
+  color: var(--clr-dark);
+  text-align: center;
+  font-weight: bold;
+}
+.card-corner--tl { top: var(--sp-sm);    left: var(--sp-sm); }
+.card-corner--br { bottom: var(--sp-sm); right: var(--sp-sm); transform: rotate(180deg); }
+
+.hero__avatar-wrap {
+  width: 116px;
+  height: 116px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--clr-gold);
+  box-shadow: 0 0 0 6px rgba(253,231,0,.1);
+  background: var(--clr-navy);
+  flex-shrink: 0;
+}
+.hero__avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.hero__text { text-align: center; color: var(--clr-dark); }
+
+.hero__eyebrow {
+  font-size: .68rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #777;
+  margin-bottom: var(--sp-sm);
+}
+
+.glitch {
+  position: relative;
+  font-family: var(--f-display);
+  font-size: clamp(1.8rem, 6vw, 3rem);
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  font-family: var(--f-display);
+  font-size: inherit;
+  opacity: 0;
+}
+.glitch::before { color: var(--clr-red);  animation: glitch-a 5s infinite; }
+.glitch::after  { color: var(--clr-blue); animation: glitch-b 5s infinite .15s; }
+.glitch:hover::before,
+.glitch:hover::after { opacity: .7; }
+
+.hero__tagline {
+  font-size: .92rem;
+  color: #555;
+  margin-top: var(--sp-sm);
+  max-width: 270px;
+  margin-inline: auto;
+  line-height: 1.55;
+}
+
+.hero__scroll-hint {
+  position: absolute;
+  bottom: var(--sp-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-sm);
+  color: var(--clr-muted);
+  font-size: .65rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.hero__scroll-line {
+  width: 1px;
+  height: 38px;
+  background: var(--clr-muted);
+  animation: scroll-line 2.2s ease-in-out infinite;
+}
+
+/* ────────────────────────────────────────────────
+   SEÇÕES — base compartilhada
+   ──────────────────────────────────────────────── */
+.section      { padding: var(--sp-2xl) var(--sp-md); background-color: var(--clr-bg-sec); }
+.section--dark { background-color: var(--clr-bg-alt); }
+
+.section__inner {
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.section__header { text-align: center; margin-bottom: var(--sp-xl); }
+
+.section__suit {
+  display: block;
+  font-family: var(--f-display);
+  font-size: 2rem;
+  color: var(--clr-gold);
+  opacity: .55;
+  margin-bottom: var(--sp-sm);
+}
+.section__title  { font-size: clamp(1.8rem, 5vw, 2.8rem); color: var(--clr-text); }
+.section__subtitle {
+  margin-top: var(--sp-sm);
+  color: var(--clr-muted);
+  font-size: .85rem;
+  letter-spacing: .08em;
+}
+
+/* ────────────────────────────────────────────────
+   SOBRE MIM
+   ──────────────────────────────────────────────── */
+.sobre__card {
+  max-width: 760px;
+  margin-inline: auto;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: var(--r-lg);
+  padding: var(--sp-xl) clamp(var(--sp-lg), 5vw, var(--sp-xl));
+}
+.sobre__card p {
+  font-size: 1rem;
+  color: rgba(244,248,249,.85);
+  margin-bottom: var(--sp-md);
+  line-height: 1.85;
+}
+.sobre__card p:last-child { margin-bottom: 0; }
+.sobre__card strong { color: var(--clr-gold); }
+
+
+/* ────────────────────────────────────────────────
+   FLIP CARDS — Curiosidades
+   Frente: carta Yugioh como background
+   Verso: revelação do conteúdo
+   ──────────────────────────────────────────────── */
+.curiosidades__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--sp-md);
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+.flip-card {
+  perspective: 1000px;
+  height: 240px;
+  cursor: pointer;
+  outline: none;
+}
+.flip-card:focus-visible .flip-card__inner {
+  outline: 2px solid var(--clr-gold);
+  outline-offset: 3px;
+  border-radius: var(--r-card);
+}
+
+.flip-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform var(--t-flip);
+  border-radius: var(--r-card);
+}
+.flip-card.is-flipped .flip-card__inner {
+  transform: rotateY(180deg);
+}
+
+/* Pseudo-elemento véu — escurece no meio do flip, tornando a troca de face imperceptível */
+.flip-card__inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  border-radius: var(--r-card);
+  pointer-events: none;
+  background: #050209;
+  opacity: 0;
+}
+.flip-card.is-animating .flip-card__inner::before {
+  animation: flip-veil var(--t-flip) ease forwards;
+}
+
+.flip-card__front,
+.flip-card__back {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--r-card);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Frente = carta Yugioh virada */
+.flip-card__front {
+  background-image: url('images/yugiohbackcard.png');
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #c8820a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: border-color var(--t-fast);
+}
+.flip-card:hover .flip-card__front {
+  border-color: var(--clr-gold);
+  box-shadow: 0 0 20px rgba(200,130,10,.4);
+}
+
+/* ? pequeno sobre a carta Yugioh */
+.flip-card__question {
+  font-family: var(--f-display);
+  font-size: 2.4rem;
+  color: rgba(253,231,0,.9);
+  text-shadow: 0 0 20px rgba(253,231,0,.8), 0 0 40px rgba(253,231,0,.4);
+  line-height: 1;
+  /* SEM position: relative nem z-index — evita conflito com backface */
+}
+
+/* Quando virada: esconde a frente imediatamente após a metade da animação */
+.flip-card.is-flipped .flip-card__front {
+  visibility: hidden;
+  transition: visibility 0s linear calc(var(--t-flip) / 2);
+}
+
+/* Verso: conteúdo revelado */
+.flip-card__back {
+  background: var(--clr-card);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-md);
+  gap: var(--sp-sm);
+  text-align: center;
+  border: 2px solid var(--clr-card-bd);
+}
+.flip-card__suit      { font-family: var(--f-display); font-size: 1.5rem; color: var(--clr-dark); line-height: 1; }
+.flip-card__suit--red { color: var(--clr-red); }
+
+.flip-card__text         { font-size: .85rem; color: var(--clr-dark); line-height: 1.6; }
+.flip-card__text strong  { color: #8b0000; }
+
+.curiosidades__finale {
+  text-align: center;
+  margin-top: var(--sp-lg);
+  animation: pop-in .5s cubic-bezier(.34,1.56,.64,1) forwards;
+}
+.curiosidades__finale p {
+  display: inline-block;
+  font-family: var(--f-display);
+  font-size: 1rem;
+  color: var(--clr-gold);
+  letter-spacing: .15em;
+  padding: var(--sp-sm) var(--sp-lg);
+  border: 1px solid rgba(253,231,0,.3);
+  border-radius: 999px;
+  background: rgba(253,231,0,.06);
+}
+
+/* ────────────────────────────────────────────────
+   HOBBIES
+   ──────────────────────────────────────────────── */
+.hobbies__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: var(--sp-md);
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+.hobby-card {
+  position: relative;
+  background: var(--clr-card);
+  border-radius: var(--r-card);
+  border: 2px solid var(--clr-card-bd);
+  padding: var(--sp-lg) var(--sp-md) var(--sp-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-sm);
+  text-align: center;
+  color: var(--clr-dark);
+  box-shadow: var(--sh-card);
+  transition: transform var(--t-base), box-shadow var(--t-base);
+  cursor: default;
+  will-change: transform;
+}
+.hobby-card__corner { position: absolute; top: var(--sp-sm); right: var(--sp-sm); font-family: var(--f-display); font-size: .75rem; color: rgba(0,0,0,.25); }
+.hobby-card__icon   { font-size: 2.4rem; line-height: 1; }
+.hobby-card__name   { font-family: var(--f-display); font-size: 1rem; }
+.hobby-card__desc   { font-size: .78rem; color: #555; line-height: 1.55; }
+
+.hobbies__grid li:nth-child(1) { transition-delay:   0ms; }
+.hobbies__grid li:nth-child(2) { transition-delay:  70ms; }
+.hobbies__grid li:nth-child(3) { transition-delay: 140ms; }
+.hobbies__grid li:nth-child(4) { transition-delay: 210ms; }
+.hobbies__grid li:nth-child(5) { transition-delay: 280ms; }
+
+/* ────────────────────────────────────────────────
+   DISCIPLINAS — mão de cartas em leque
+   ──────────────────────────────────────────────── */
+.hand-deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: var(--sp-sm);
+  padding-bottom: var(--sp-xl);
+}
+
+.deck-card {
+  background: var(--clr-card);
+  border-radius: var(--r-card);
+  border: 2px solid var(--clr-card-bd);
+  padding: var(--sp-md);
+  width: min(200px, 44vw);
+  min-height: 280px;
+  box-shadow: var(--sh-card);
+  display: flex;
+  flex-direction: column;
+  color: var(--clr-dark);
+  transform: rotate(var(--rotate, 0deg));
+  transform-origin: bottom center;
+  transition: transform var(--t-base), box-shadow var(--t-base);
+  position: relative;
+  z-index: 1;
+}
+.deck-card:hover {
+  transform: rotate(0deg) translateY(-22px);
+  box-shadow: var(--sh-card), 0 24px 48px rgba(0,0,0,.4);
+  z-index: 10;
+}
+
+.deck-card__header,
+.deck-card__footer { display: flex; align-items: center; gap: var(--sp-xs); }
+.deck-card__footer { margin-top: auto; transform: rotate(180deg); }
+
+.deck-card__rank    { font-family: var(--f-display); font-size: .95rem; font-weight: bold; }
+.deck-card__suit    { font-family: var(--f-display); font-size: .95rem; }
+.deck-card__suit--red { color: var(--clr-red); }
+
+.deck-card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-xs);
+  text-align: center;
+  padding: var(--sp-sm) 0;
+}
+.deck-card__subject { font-family: var(--f-display); font-size: .95rem; line-height: 1.3; }
+.deck-card__reason  { font-size: .75rem; color: #555; line-height: 1.55; }
+
+.deck-card--1 { transition-delay:   0ms; }
+.deck-card--2 { transition-delay:  90ms; }
+.deck-card--3 { transition-delay: 180ms; }
+.deck-card--4 { transition-delay: 270ms; }
+
+/* ────────────────────────────────────────────────
+   PROJETOS — Joker Cards lendárias
+   Imagem tem transition de opacidade para o ciclo JS
+   ──────────────────────────────────────────────── */
+.projetos__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: var(--sp-xl);
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+.joker-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: linear-gradient(155deg, #181828 0%, #141e38 50%, #0f2850 100%);
+  border: 2px solid rgba(253,231,0,.25);
+  box-shadow: var(--sh-card), var(--sh-gold);
+  transition: transform var(--t-slow), box-shadow var(--t-slow);
+  will-change: transform;
+}
+.joker-card:hover {
+  transform: translateY(-14px) scale(1.025);
+  box-shadow: var(--sh-card), 0 0 50px rgba(253,231,0,.45), 0 0 100px rgba(253,231,0,.15);
+}
+
+.joker-card__shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    108deg,
+    transparent 38%,
+    rgba(253,231,0,.045)   44%,
+    rgba(174,101,255,.055) 50%,
+    rgba(0,156,253,.045)   56%,
+    transparent 62%
+  );
+  background-size: 200% 200%;
+  animation: holo 5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.joker-card__header  { padding: var(--sp-md) var(--sp-md) var(--sp-sm); text-align: center; }
+.joker-card__rarity  {
+  display: block;
+  font-family: var(--f-display);
+  font-size: .6rem;
+  letter-spacing: .22em;
+  color: var(--clr-gold);
+  margin-bottom: var(--sp-sm);
+}
+
+.joker-card__img-wrap {
+  height: 190px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+/* Transição de opacidade usada pelo JS de image cycling */
+.joker-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity .22s ease, transform var(--t-slow);
+}
+.joker-card:hover .joker-card__img { transform: scale(1.06); }
+
+.joker-card__body {
+  padding: var(--sp-lg) var(--sp-md) var(--sp-md);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+  position: relative;
+  z-index: 2;
+}
+.joker-card__title { font-family: var(--f-display); font-size: 1.35rem; letter-spacing: .04em; }
+.joker-card__tool  { font-size: .7rem; color: var(--clr-muted); letter-spacing: .12em; text-transform: uppercase; }
+.joker-card__desc  { font-size: .88rem; color: rgba(244,248,249,.8); line-height: 1.7; }
+
+.joker-card__footer {
+  padding: var(--sp-sm) var(--sp-md) var(--sp-md);
+  border-top: 1px solid rgba(255,255,255,.05);
+  position: relative;
+  z-index: 2;
+}
+.joker-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-xs);
+  font-size: .82rem;
+  font-weight: 600;
+  padding: 7px var(--sp-md);
+  border-radius: 999px;
+  border: 1.5px solid;
+  transition: background var(--t-fast), color var(--t-fast);
+  letter-spacing: .04em;
+}
+
+/* Letheus — roxo */
+.joker-card--construct { border-color: rgba(174,101,255,.4); box-shadow: var(--sh-card), var(--sh-purple); }
+.joker-card--construct .joker-card__title  { color: var(--clr-purple-lt); }
+.joker-card--construct .joker-card__rarity { color: var(--clr-purple-lt); }
+.joker-card--construct .joker-card__link   { color: var(--clr-purple-lt); border-color: var(--clr-purple-lt); }
+.joker-card--construct .joker-card__link:hover { background: var(--clr-purple-lt); color: #fff; }
+
+/* Guia Linux — azul */
+.joker-card--processing { border-color: rgba(0,156,253,.4); box-shadow: var(--sh-card), var(--sh-blue); }
+.joker-card--processing .joker-card__title  { color: var(--clr-blue-lt); }
+.joker-card--processing .joker-card__rarity { color: var(--clr-blue-lt); }
+.joker-card--processing .joker-card__link   { color: var(--clr-blue-lt); border-color: var(--clr-blue-lt); }
+.joker-card--processing .joker-card__link:hover { background: var(--clr-blue-lt); color: #fff; }
+
+/* ────────────────────────────────────────────────
+   FOOTER
+   ──────────────────────────────────────────────── */
+.footer {
+  background-color: var(--clr-bg);
+  border-top: 1px solid rgba(255,255,255,.05);
+  padding: var(--sp-xl) var(--sp-md);
+  text-align: center;
+}
+.footer__inner {
+  max-width: 560px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-md);
+}
+.footer__name  { font-family: var(--f-display); font-size: 1.2rem; color: var(--clr-gold); }
+.footer__year  { font-size: .78rem; color: var(--clr-muted); }
+
+.footer__links { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sp-md); }
+.footer__link  { font-size: .82rem; color: var(--clr-muted); letter-spacing: .05em; transition: color var(--t-fast); }
+.footer__link:hover { color: var(--clr-gold); }
+
+.footer__suits { font-family: var(--f-display); font-size: 1.1rem; color: rgba(253,231,0,.25); letter-spacing: .5em; }
+
+/* ────────────────────────────────────────────────
+   RESPONSIVIDADE — Mobile First
+   ──────────────────────────────────────────────── */
+@media (max-width: 599px) {
+  .hand-deck { flex-direction: column; align-items: center; padding-bottom: 0; }
+  .deck-card { width: min(300px, 88vw); transform: none !important; min-height: unset; }
+  .deck-card:hover { transform: translateY(-8px) !important; }
+
+  .curiosidades__grid { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
+
+  .nav__link { font-size: .66rem; padding: 4px 7px; gap: 5px; }
+  .nav__chip { width: 14px; height: 14px; }
+  .nav__logo .nav__chip { width: 18px; height: 18px; }
+}
+
+@media (min-width: 600px) {
+  .curiosidades__grid { grid-template-columns: repeat(5, 1fr); }
+  .hobbies__grid      { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .hand-deck { flex-wrap: nowrap; }
+}

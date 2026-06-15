@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Otávio Londero — Portfólio</title>
+  <meta name="description" content="Portfólio de Otávio Londero, estudante de Ciência da Computação na PUCPR." />
+
+  <!-- Open Graph — prévia ao compartilhar no WhatsApp, LinkedIn, etc. -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:title"       content="Otávio Londero — Portfólio" />
+  <meta property="og:description" content="Estudante de Ciência da Computação na PUCPR. Gamer, ex-Vancouver, projetos em ML, Construct e Processing." />
+  <meta property="og:image"       content="images/Foto perfil.jpg" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =============================================
+       NAV — botões estilo Balatro com ficha de poker
+       girando no hover; oculta ao rolar para baixo
+  ============================================= -->
+  <nav class="nav" id="nav" aria-label="Navegação principal">
+    <div class="nav__inner">
+
+      <!-- Logo: ficha de poker clicável leva ao topo -->
+      <a href="#hero" class="nav__link nav__logo" aria-label="Início">
+        <img src="images/pokerchip.png" alt="" class="nav__chip" aria-hidden="true" />
+      </a>
+
+      <a href="#sobre"        class="nav__link" aria-label="Sobre mim">
+        <img src="images/pokerchip.png" alt="" class="nav__chip" aria-hidden="true" />
+        Sobre
+      </a>
+
+      <a href="#curiosidades" class="nav__link" aria-label="Curiosidades">
+        <img src="images/pokerchip.png" alt="" class="nav__chip" aria-hidden="true" />
+        Curiosidades
+      </a>
+
+      <a href="#hobbies"      class="nav__link" aria-label="Hobbies">
+        <img src="images/pokerchip.png" alt="" class="nav__chip" aria-hidden="true" />
+        Hobbies
+      </a>
+
+      <a href="#disciplinas"  class="nav__link" aria-label="Disciplinas favoritas">
+        <img src="images/pokerchip.png" alt="" class="nav__chip" aria-hidden="true" />
+        Disciplinas
+      </a>
+
+      <a href="#projetos"     class="nav__link" aria-label="Meus projetos">
+        <img src="images/pokerchip.png" alt="" class="nav__chip" aria-hidden="true" />
+        Projetos
+      </a>
+
+    </div>
+  </nav>
+
+  <!-- =============================================
+       HERO — carta flutuante, foto, nome com glitch
+  ============================================= -->
+  <header class="hero" id="hero">
+    <div class="hero__bg-pattern" aria-hidden="true"></div>
+
+    <div class="hero__card">
+      <span class="card-corner card-corner--tl" aria-hidden="true">A<br/>♠</span>
+      <span class="card-corner card-corner--br" aria-hidden="true">A<br/>♠</span>
+
+      <div class="hero__avatar-wrap">
+        <img
+          src="images/Foto perfil.jpg"
+          alt="Otávio Londero em uma mesa de poker"
+          class="hero__avatar"
+        />
+      </div>
+
+      <div class="hero__text">
+        <p class="hero__eyebrow">Player One has entered the game</p>
+        <h1 class="hero__name glitch" data-text="Otávio Londero">Otávio Londero</h1>
+        <p class="hero__tagline">
+          Gamer de alma. Sempre all&nbsp;in.
+        </p>
+      </div>
+    </div>
+
+    <div class="hero__scroll-hint" aria-hidden="true">
+      <span class="hero__scroll-label">scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </header>
+
+  <!-- Faixa decorativa estilo Balatro: vermelho chamativo + vinho -->
+  <div class="balatro-stripe" aria-hidden="true">
+    <div class="stripe__track">
+      <span class="stripe__text">♠ ♥ ♦ ♣ ♠ ♥ ♦ ♣ ♠ ♥ ♦ ♣ ♠ ♥ ♦ ♣ ♠ ♥ ♦ ♣ ♠ ♥ ♦ ♣ ♠ ♥ ♦ ♣ ♠ ♥ ♦ ♣</span>
+      <span class="stripe__text">♠ ♥ ♦ ♣ ♠ ♥ ♦ ♣ ♠ ♥ ♦ ♣ ♠ ♥ ♦ ♣ ♠ ♥ ♦ ♣ ♠ ♥ ♦ ♣ ♠ ♥ ♦ ♣ ♠ ♥ ♦ ♣</span>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- =============================================
+         SOBRE MIM
+    ============================================= -->
+    <section class="section" id="sobre" aria-labelledby="sobre-title">
+      <div class="section__inner">
+
+        <header class="section__header">
+          <span class="section__suit" aria-hidden="true">♥</span>
+          <h2 class="section__title" id="sobre-title">Sobre Mim</h2>
+        </header>
+
+        <div class="sobre__card reveal-card">
+          <p>
+            Sou <strong>Otávio Londero</strong>, nascido e criado em Curitiba, Brasil. Cresci
+            cercado de tecnologia e games desde cedo, e essa curiosidade foi o que me trouxe
+            até a <strong>Ciência da Computação na PUCPR</strong>.
+          </p>
+          <p>
+            Em 2024, fui ao Canadá para concluir um <strong>diploma em Data Science em
+            Vancouver</strong>. A experiência trouxe uma visão muito mais global do mercado de
+            tecnologia e confirmou que vale muito a pena sair da zona de conforto.
+          </p>
+          <p>
+            Ao longo da formação, trabalhei em projetos variados: previ resultados de partidas
+            de eSports com machine learning, analisei mais de 25 anos de registros comerciais
+            de Vancouver com PySpark e SQL, e explorei o impacto ambiental do ciclo de vida
+            de hardware. Cada projeto foi uma oportunidade de aprender algo novo.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================
+         CURIOSIDADES — flip-cards com carta Yugioh
+         no verso (frente virada). Clique para revelar.
+    ============================================= -->
+    <section class="section section--dark" id="curiosidades" aria-labelledby="curiosidades-title">
+      <div class="section__inner">
+
+        <header class="section__header">
+          <span class="section__suit" aria-hidden="true">♦</span>
+          <h2 class="section__title" id="curiosidades-title">Curiosidades</h2>
+          <p class="section__subtitle">Clique nas cartas para revelar segredos sobre mim</p>
+        </header>
+
+        <ul class="curiosidades__grid" role="list">
+
+          <li class="flip-card" role="button" tabindex="0" aria-pressed="false" aria-label="Revelar curiosidade 1">
+            <div class="flip-card__inner">
+              <!-- Frente virada: carta Yugioh -->
+              <div class="flip-card__front" aria-hidden="true">
+                <span class="flip-card__question">?</span>
+              </div>
+              <!-- Verso: conteúdo revelado -->
+              <div class="flip-card__back">
+                <span class="flip-card__suit flip-card__suit--red" aria-hidden="true">♦</span>
+                <p class="flip-card__text">
+                  Tenho <strong>924 horas</strong> no Counter-Strike 2. Provavelmente ganharia no x1 contra você.
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li class="flip-card" role="button" tabindex="0" aria-pressed="false" aria-label="Revelar curiosidade 2">
+            <div class="flip-card__inner">
+              <div class="flip-card__front" aria-hidden="true">
+                <span class="flip-card__question">?</span>
+              </div>
+              <div class="flip-card__back">
+                <span class="flip-card__suit" aria-hidden="true">♠</span>
+                <p class="flip-card__text">
+                  Morei no <strong>Canadá</strong> para estudar Data Science em Vancouver. Uma experiência que mudou minha perspectiva.
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li class="flip-card" role="button" tabindex="0" aria-pressed="false" aria-label="Revelar curiosidade 3">
+            <div class="flip-card__inner">
+              <div class="flip-card__front" aria-hidden="true">
+                <span class="flip-card__question">?</span>
+              </div>
+              <div class="flip-card__back">
+                <span class="flip-card__suit flip-card__suit--red" aria-hidden="true">♥</span>
+                <p class="flip-card__text">
+                  Tenho <strong>102 jogos</strong> na Steam, nível 31 e 502 itens no inventário.
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li class="flip-card" role="button" tabindex="0" aria-pressed="false" aria-label="Revelar curiosidade 4">
+            <div class="flip-card__inner">
+              <div class="flip-card__front" aria-hidden="true">
+                <span class="flip-card__question">?</span>
+              </div>
+              <div class="flip-card__back">
+                <span class="flip-card__suit" aria-hidden="true">♣</span>
+                <p class="flip-card__text">
+                  Usei <strong>Machine Learning</strong> para prever resultados de partidas de eSports. Dados e games juntos fazem sentido.
+                </p>
+              </div>
+            </div>
+          </li>
+
+          <li class="flip-card" role="button" tabindex="0" aria-pressed="false" aria-label="Revelar curiosidade 5">
+            <div class="flip-card__inner">
+              <div class="flip-card__front" aria-hidden="true">
+                <span class="flip-card__question">?</span>
+              </div>
+              <div class="flip-card__back">
+                <span class="flip-card__suit flip-card__suit--red" aria-hidden="true">♦</span>
+                <p class="flip-card__text">
+                  <strong>Bleach</strong> é o meu anime favorito de todos os tempos.
+                </p>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+
+        <div class="curiosidades__finale" id="curiosidades-finale" aria-live="polite" hidden>
+          <p>✦ Todas as cartas reveladas! ✦</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================
+         HOBBIES — cards estilo carta de baralho
+    ============================================= -->
+    <section class="section" id="hobbies" aria-labelledby="hobbies-title">
+      <div class="section__inner">
+
+        <header class="section__header">
+          <span class="section__suit" aria-hidden="true">♣</span>
+          <h2 class="section__title" id="hobbies-title">Hobbies</h2>
+        </header>
+
+        <ul class="hobbies__grid" role="list">
+
+          <li class="hobby-card reveal-card" role="listitem">
+            <span class="hobby-card__corner" aria-hidden="true">♠</span>
+            <span class="hobby-card__icon" aria-hidden="true">🎵</span>
+            <h3 class="hobby-card__name">Música Eletrônica</h3>
+            <p class="hobby-card__desc">Deep House e Melodic House. A trilha sonora perfeita para codar e treinar.</p>
+          </li>
+
+          <li class="hobby-card reveal-card" role="listitem">
+            <span class="hobby-card__corner" aria-hidden="true">♥</span>
+            <span class="hobby-card__icon" aria-hidden="true">💪</span>
+            <h3 class="hobby-card__name">Academia</h3>
+            <p class="hobby-card__desc">Disciplina fora das telas. O mesmo foco do código vai para o peso.</p>
+          </li>
+
+          <li class="hobby-card reveal-card" role="listitem">
+            <span class="hobby-card__corner" aria-hidden="true">♦</span>
+            <span class="hobby-card__icon" aria-hidden="true">🎮</span>
+            <h3 class="hobby-card__name">Videogames</h3>
+            <p class="hobby-card__desc">CS2 (924h), Elden Ring, Arma Reforger. 102 jogos e contando.</p>
+          </li>
+
+          <li class="hobby-card reveal-card" role="listitem">
+            <span class="hobby-card__corner" aria-hidden="true">♣</span>
+            <span class="hobby-card__icon" aria-hidden="true">💻</span>
+            <h3 class="hobby-card__name">Programação</h3>
+            <p class="hobby-card__desc">Criar do zero é o melhor jogo que existe. Python, C e C++ são meus decks.</p>
+          </li>
+
+          <li class="hobby-card reveal-card" role="listitem">
+            <span class="hobby-card__corner" aria-hidden="true">♠</span>
+            <span class="hobby-card__icon" aria-hidden="true">🎨</span>
+            <h3 class="hobby-card__name">Design</h3>
+            <p class="hobby-card__desc">Figma para dar vida visual às ideias. Interface bem feita faz toda a diferença.</p>
+          </li>
+
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- =============================================
+         DISCIPLINAS FAVORITAS — mão de cartas em leque
+    ============================================= -->
+    <section class="section section--dark" id="disciplinas" aria-labelledby="disciplinas-title">
+      <div class="section__inner">
+
+        <header class="section__header">
+          <span class="section__suit" aria-hidden="true">♠</span>
+          <h2 class="section__title" id="disciplinas-title">Disciplinas Favoritas</h2>
+          <p class="section__subtitle">A minha mão vencedora</p>
+        </header>
+
+        <div class="hand-deck" role="list" aria-label="Disciplinas favoritas">
+
+          <article class="deck-card deck-card--1 reveal-card" role="listitem" style="--rotate: -9deg">
+            <header class="deck-card__header">
+              <span class="deck-card__rank">A</span>
+              <span class="deck-card__suit" aria-hidden="true">♠</span>
+            </header>
+            <div class="deck-card__body">
+              <h3 class="deck-card__subject">Machine Learning</h3>
+              <p class="deck-card__reason">Treinar modelos que preveem o futuro? Meu tipo favorito de magia aplicada.</p>
+            </div>
+            <footer class="deck-card__footer" aria-hidden="true">
+              <span class="deck-card__rank">A</span>
+              <span class="deck-card__suit">♠</span>
+            </footer>
+          </article>
+
+          <article class="deck-card deck-card--2 reveal-card" role="listitem" style="--rotate: -3deg">
+            <header class="deck-card__header">
+              <span class="deck-card__rank">K</span>
+              <span class="deck-card__suit deck-card__suit--red" aria-hidden="true">♥</span>
+            </header>
+            <div class="deck-card__body">
+              <h3 class="deck-card__subject">Análise de Dados</h3>
+              <p class="deck-card__reason">Big Data, PySpark, SQL. Adoro resolver quebra-cabeças em escala real.</p>
+            </div>
+            <footer class="deck-card__footer" aria-hidden="true">
+              <span class="deck-card__rank">K</span>
+              <span class="deck-card__suit deck-card__suit--red">♥</span>
+            </footer>
+          </article>
+
+          <article class="deck-card deck-card--3 reveal-card" role="listitem" style="--rotate: 3deg">
+            <header class="deck-card__header">
+              <span class="deck-card__rank">Q</span>
+              <span class="deck-card__suit deck-card__suit--red" aria-hidden="true">♦</span>
+            </header>
+            <div class="deck-card__body">
+              <h3 class="deck-card__subject">Python</h3>
+              <p class="deck-card__reason">Minha linguagem principal. De scripts de automação a modelos de ML completos.</p>
+            </div>
+            <footer class="deck-card__footer" aria-hidden="true">
+              <span class="deck-card__rank">Q</span>
+              <span class="deck-card__suit deck-card__suit--red">♦</span>
+            </footer>
+          </article>
+
+          <article class="deck-card deck-card--4 reveal-card" role="listitem" style="--rotate: 9deg">
+            <header class="deck-card__header">
+              <span class="deck-card__rank">J</span>
+              <span class="deck-card__suit" aria-hidden="true">♣</span>
+            </header>
+            <div class="deck-card__body">
+              <h3 class="deck-card__subject">Banco de Dados</h3>
+              <p class="deck-card__reason">PostgreSQL e SQL são a fundação sólida que sustenta todo projeto de dados.</p>
+            </div>
+            <footer class="deck-card__footer" aria-hidden="true">
+              <span class="deck-card__rank">J</span>
+              <span class="deck-card__suit">♣</span>
+            </footer>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================
+         MEUS PROJETOS — Joker Cards lendárias
+         Imagens ciclam no hover (JS).
+         data-images: lista JSON de screenshots
+    ============================================= -->
+    <section class="section" id="projetos" aria-labelledby="projetos-title">
+      <div class="section__inner">
+
+        <header class="section__header">
+          <span class="section__suit" aria-hidden="true">★</span>
+          <h2 class="section__title" id="projetos-title">Meus Projetos</h2>
+          <p class="section__subtitle">Cartas Lendárias do meu deck</p>
+        </header>
+
+        <div class="projetos__grid">
+
+          <!-- Letheus — jogo 2D cyberpunk no Construct -->
+          <article class="joker-card joker-card--construct reveal-card"
+                   aria-label="Projeto Letheus: jogo 2D no Construct"
+                   data-images='["images/jogo (1).jpeg","images/jogo (2).jpeg","images/jogo (3).jpeg","images/jogo (4).jpeg","images/jogo (5).jpeg","images/jogo (6).jpeg"]'>
+            <div class="joker-card__shine" aria-hidden="true"></div>
+
+            <header class="joker-card__header">
+              <span class="joker-card__rarity">✦ Lendário ✦</span>
+              <div class="joker-card__img-wrap">
+                <img
+                  src="images/jogo (1).jpeg"
+                  alt="Screenshot de Letheus: plataformer cyberpunk com personagem em cenário roxo"
+                  class="joker-card__img"
+                  loading="lazy"
+                />
+              </div>
+            </header>
+
+            <div class="joker-card__body">
+              <h3 class="joker-card__title">Letheus</h3>
+              <p class="joker-card__tool">Construct · Jogo 2D Plataformer</p>
+              <p class="joker-card__desc">
+                Plataformer cyberpunk com pixel art ambientado em um mundo distópico de néon violeta.
+                Controle um agente mascarado enfrentando hordas de inimigos alados em plataformas
+                futuristas. Mecânicas de combate e progressão construídas do zero no Construct.
+              </p>
+            </div>
+
+            <footer class="joker-card__footer">
+              <a href="#" class="joker-card__link" target="_blank" rel="noopener noreferrer">
+                Jogar agora <span aria-hidden="true">→</span>
+              </a>
+            </footer>
+          </article>
+
+          <!-- Guia Linux Interativo — app multimídia no Processing -->
+          <article class="joker-card joker-card--processing reveal-card"
+                   aria-label="Projeto Guia Linux: app multimídia no Processing"
+                   data-images='["images/app (1).jpeg","images/app (2).jpeg","images/app (3).jpeg","images/app (4).jpeg","images/app (5).jpeg"]'>
+            <div class="joker-card__shine" aria-hidden="true"></div>
+
+            <header class="joker-card__header">
+              <span class="joker-card__rarity">✦ Lendário ✦</span>
+              <div class="joker-card__img-wrap">
+                <img
+                  src="images/app (1).jpeg"
+                  alt="Screenshot de Explorando Ubuntu: aplicativo multimídia interativo sobre Linux"
+                  class="joker-card__img"
+                  loading="lazy"
+                />
+              </div>
+            </header>
+
+            <div class="joker-card__body">
+              <h3 class="joker-card__title">Explorando Ubuntu</h3>
+              <p class="joker-card__tool">Processing · Aplicativo Multimídia</p>
+              <p class="joker-card__desc">
+                Aplicativo multimídia interativo sobre Linux desenvolvido no Processing, com visual
+                inspirado no Ubuntu. Cobre seções como História, Kernel, Comandos, Pacotes,
+                Segurança e Redes. Um guia navegável feito do zero.
+              </p>
+            </div>
+
+            <footer class="joker-card__footer">
+              <a href="https://github.com/0Londero/processing_exploring_ubuntu"
+                 class="joker-card__link" target="_blank" rel="noopener noreferrer">
+                Ver projeto <span aria-hidden="true">→</span>
+              </a>
+            </footer>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =============================================
+       FOOTER
+  ============================================= -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__name">Otávio Londero</p>
+      <p class="footer__year">© <span id="footer-year"></span> · PUCPR · Curitiba, BR</p>
+
+      <ul class="footer__links" role="list">
+        <li>
+          <a href="mailto:otavio.b.londero@gmail.com" class="footer__link" aria-label="E-mail">
+            ✉ E-mail
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/0Londero" class="footer__link"
+             target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            ⌥ GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/0londero" class="footer__link"
+             target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            in LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="https://steamcommunity.com/profiles/76561199046917222/" class="footer__link"
+             target="_blank" rel="noopener noreferrer" aria-label="Steam">
+            ♟ Steam
+          </a>
+        </li>
+      </ul>
+
+      <p class="footer__suits" aria-hidden="true">♠ ♥ ♦ ♣</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
